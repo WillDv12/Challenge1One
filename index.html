@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Encriptador</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #c0e2f8;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        display: flex;
+        justify-content: center;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+      }
+
+      textarea {
+        box-sizing: border-box;
+        border-radius: 5.3%;
+        background-color: #eff9ff;
+        font-size: 2.5em;
+        margin: auto;
+        max-width: 45%;
+        min-width: 45%;
+        text-transform: lowercase;
+        padding: 5%;
+        padding-top: 5%;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        margin-top: 1%;
+        margin-right: 2.5%;
+        margin-left: 2%;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+      }
+
+      input[type="button"] {
+        padding: 20px 50px;
+        font-size: 1.2em;
+        background-color: #0407c7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 3%;
+        margin-right: 11%;
+      }
+
+      input[type="button"]:hover {
+        text-align: center;
+        background-color: #667f97;
+      }
+
+      #resultado {
+        margin-top: 20px;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      // Función que encripta el texto ingresado
+      function encriptar() {
+        var texto = document.getElementById("texto").value; // Obtener el texto ingresado
+        texto = texto.replace(/e/g, "enter"); // Reemplazar las letras correspondientes
+        texto = texto.replace(/i/g, "imes");
+        texto = texto.replace(/a/g, "ai");
+        texto = texto.replace(/o/g, "ober");
+        texto = texto.replace(/u/g, "ufat");
+        document.getElementById("resultado").value = texto; // Mostrar el resultado en el textarea correspondiente
+      }
+
+      // Función que desencripta el texto ingresado
+      function desencriptar() {
+        var texto = document.getElementById("texto").value; // Obtener el texto ingresado
+        texto = texto.replace(/enter/g, "e"); // Reemplazar las letras correspondientes
+        texto = texto.replace(/imes/g, "i");
+        texto = texto.replace(/ai/g, "a");
+        texto = texto.replace(/ober/g, "o");
+        texto = texto.replace(/ufat/g, "u");
+        document.getElementById("resultado").value = texto; // Mostrar el resultado en el textarea correspondiente
+      }
+
+      // Función que copia el texto encriptado o desencriptado al portapapeles
+      function copiar() {
+        var resultado = document.getElementById("resultado"); // Obtener el resultado
+        resultado.select(); // Seleccionar todo el texto del textarea
+        document.execCommand("copy"); // Copiar el texto seleccionado al portapapeles
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <h1>Encriptar - Desencriptar</h1>
+
+    <textarea
+      id="texto"
+      rows="5"
+      placeholder="Ingrese el texto:"
+    ></textarea>
+
+    <textarea
+      id="resultado"
+      rows="5"
+      placeholder="Resultado:"
+    ></textarea>
+
+    <div>
+      <!-- Botones que llaman a las funciones correspondientes -->
+      <input type="button" value="Encriptar" onclick="encriptar()" />
+      <input type="button" value="Desencriptar" onclick="desencriptar()" />
+      <input type="button" value="Copiar" onclick="copiar()" />
+    </div>
+
+    <footer>
+        <h5 class="texto-estilo" style="display: flex;
+        justify-content: center; margin-top: 4%;">Design by Willian Diosa for Oracle/Alura Latam!</h5>
+    </footer>
+
+  </body>
+</html>
